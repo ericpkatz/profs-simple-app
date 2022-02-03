@@ -1,0 +1,12 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Using API</h1>
+    <script>
+      fetch('https://profs-simple-api.herokuapp.com/api/users')
+        .then( response => response.json())
+        .then( users => console.log(users));
+    </script>
+  </body>
+</html>
