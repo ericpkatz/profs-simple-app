@@ -25,6 +25,11 @@ describe('my app', ()=> {
         expect(response.status).to.equal(200);
         expect(response.body.length).to.equal(2);
       });
+      it('sends a cors header', async()=> {
+        const response = await app.get('/api/users');
+        const cors = response.headers['access-control-allow-origin'];
+        expect(cors).to.equal('*');
+      });
     });
   });
 });
