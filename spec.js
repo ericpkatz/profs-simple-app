@@ -1,21 +1,8 @@
 const { expect } = require('chai');
+const { models: { User }, syncAndSeed } = require('./db');
 
-const Sequelize = require('sequelize');
-const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_db');
-const { DataTypes: { STRING }} = Sequelize;
-
-const User = conn.define('user', {
-  name: {
-    type: STRING 
-  }
-});
 describe('my app', ()=> {
-  beforeEach(async()=> {
-    await conn.sync({ force: true });
-  });
-  beforeEach(async()=> {
-    await User.create({ name: 'moe' });
-  });
+  beforeEach(()=> syncAndSeed());
   it('true equals true', ()=> {
     expect(true).equals(true);
   });
