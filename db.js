@@ -10,7 +10,10 @@ const User = conn.define('user', {
 
 const syncAndSeed = async()=> {
   await conn.sync({ force: true });
-  await User.create({ name: 'moe'});
+  await Promise.all([
+    User.create({ name: 'moe'}),
+    User.create({ name: 'lucy'})
+  ]);
 };
 
 module.exports = {

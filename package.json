@@ -5,16 +5,20 @@
   "main": "spec.js",
   "scripts": {
     "test": "mocha spec.js",
-    "test:dev": "npm run test -- --watch"
+    "test:dev": "DATABASE=postgres://localhost/acme_db_test npm run test -- --watch",
+    "start:dev": "nodemon server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.3.6",
-    "mocha": "^9.2.0"
+    "mocha": "^9.2.0",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   },
   "dependencies": {
+    "express": "^4.17.2",
     "pg": "^8.7.1",
     "sequelize": "^6.15.0"
   }
